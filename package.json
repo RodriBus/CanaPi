@@ -1,0 +1,17 @@
+{
+  "name": "canapi",
+  "version": "1.0.0",
+  "description": "Local network device watcher.",
+  "main": "index.js",
+  "dependencies": {
+    "arpscan": "^0.1.0",
+    "debug": "^2.2.0",
+    "mysql": "^2.11.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Diego Rodríguez <diego@rodribus.com> (rodribus.com)",
+  "license": "MIT"
+}
