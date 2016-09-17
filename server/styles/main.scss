@@ -1,3 +1,87 @@
-.canapi {
-    font-weight: bold;
+@import '_colors.scss';
+/**
+ * COMMON
+ */
+.flex {
+	display: flex;
+}
+.mdl-layout main {
+	align-items: center;
+	justify-content: center;
+}
+/**
+ * LOGIN PAGE
+ */
+.felx-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.mdl-card.mdl-card-login {
+	vertical-align: middle;
+}
+.mdl-layout__container,
+body {
+	background-color: $main-background;
+}
+/**
+ * MAIN PAGE
+ */
+.mdl-layout__drawer {
+	border: none;
+	.material-icons {
+		font-size: 24px;
+		margin-right: 32px;
+	}
+	.mdl-navigation__link {
+		display: flex !important;
+		flex-direction: row;
+		align-items: center;
+		color: $half-white;
+		font-weight: 600;
+	}
+}
+$card-size: 300px;
+.mdl-card.mdl-card-device {
+	.mdl-card__media {
+		margin: 0;
+	}
+	.mdl-card__media > img {
+		max-width: 100%;
+	}
+	.mdl-card__actions {
+		display: flex;
+		box-sizing: border-box;
+		align-items: center;
+	}
+	.mdl-card__actions > .mdl-button--icon {
+		margin-right: 3px;
+		margin-left: 3px;
+	}
+	.mdl-card__title {
+		color: $white;
+		background: 15% no-repeat;
+		background-position: center;
+		background-size: $card-size;
+		height: $card-size - 50;
+	}
+	.mdl-card__supporting-text {
+		& > * {
+			flex-direction: column;
+		}
+		i.material-icons {
+			margin-right: 16px;
+		}
+		div {
+			margin-right: 16px;
+			span {
+				display: block;
+			}
+		}
+	}
+}
+.mdl-mini-footer {
+	a {
+		text-decoration: none;
+	}
 }

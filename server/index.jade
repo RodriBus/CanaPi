@@ -1,14 +1,58 @@
+doctype html
 html
   head
     title CanaPi
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(name='theme-color' content='#455A64')
+    meta(name='msapplication-navbutton-color' content='#455A64')
+    meta(name='apple-mobile-web-app-status-bar-style' content='#455A64')
     link(rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' type='text/css')
     link(rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons')
     link(rel='stylesheet' href='https://code.getmdl.io/1.2.1/material.indigo-pink.min.css')
-    link(rel='stylesheet' href='https://code.getmdl.io/1.2.1/material.cyan-light_blue.min.css')
+    link(rel='stylesheet' href='https://code.getmdl.io/1.2.1/material.blue_grey-blue.min.css')
 
     link(rel='stylesheet' href='/styles/app.css')
   body
-    .canapi hello world
-    script(src='/scripts/app.js')
+    .mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+      header.mdl-layout__header
+        .mdl-layout__header-row
+          span.mdl-layout-title
+            | CanaPi
+          .mdl-layout-spacer
+          .mdl-navigation
+            a.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(href='/login')
+              |  Log out
+
+      .mdl-layout__drawer.mdl-color--blue-grey-900.mdl-color-text--blue-grey-50 
+        span.mdl-layout-title
+          | CanaPi
+        nav.mdl-navigation
+          a.mdl-navigation__link(href='/')
+            i.mdl-color-text--blue-grey-400.material-icons home
+            |  Home
+          a.mdl-navigation__link(href='/about') 
+            i.mdl-color-text--blue-grey-400.material-icons info
+            |  About
+
+      main.mdl-layout__content
+        section.mdl-layout__content
+          .mdl-grid
+
+          footer.mdl-mini-footer
+            .mdl-mini-footer__left-section
+              .mdl-logo
+                | Made with 
+                span.mdl-color-text--red-400 ❤ 
+                | by 
+                a(href='http://rodribus.com') RodriBus
+              ul.mdl-mini-footer__link-list
+                li
+                  a(href='/about') About
+                li
+                  a(href='https://github.com/RodriBus/CanaPi') Source
+
+
+
     script(defer src='https://code.getmdl.io/1.2.1/material.min.js')
+    script(src='https://code.jquery.com/jquery-3.1.0.min.js' integrity='sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=' crossorigin='anonymous')
+    script(src='/scripts/app.js')
