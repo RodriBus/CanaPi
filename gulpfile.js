@@ -10,6 +10,7 @@ var jade = require('gulp-jade');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var debug = require('gulp-debug');
+var reload = browserSync.reload;
 
 gulp.task('serve', 'Sirve la aplicación', ['compile'], function() {
 
@@ -33,11 +34,13 @@ gulp.task('html', 'Compila HTML con los ficheros JADE', function() {
     }))
     .pipe(jade())
     .pipe(gulp.dest('public'))
-    .pipe(browserSync.stream());
+    .pipe(reload({
+      stream: true
+    }));
 });
 
 gulp.task('css', 'Genera app.css con los ficheros SCSS', function() {
-  return gulp.src('server/**/*.scss')
+  return gulp.src('server/styles/main.scss')
     .pipe(debug({
       title: 'CSS'
     }))
@@ -49,8 +52,9 @@ gulp.task('css', 'Genera app.css con los ficheros SCSS', function() {
     .pipe(autoprefixer())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('public/styles'))
-    .pipe(browserSync.stream())
-    .pipe(browserSync.stream());
+    .pipe(reload({
+      stream: true
+    }));
 });
 
 gulp.task('js', 'Genera app.js con los ficheros JS', function() {
@@ -63,9 +67,8 @@ gulp.task('js', 'Genera app.js con los ficheros JS', function() {
     //.pipe(eslint.failAfterError())
     .pipe(concat('app.js'))
     .pipe(sourcemaps.write('.'))
-    .pipe(browserSync.reload({
-      stream: true
-    }))
     .pipe(gulp.dest('public/scripts'))
-    .pipe(browserSync.stream());
+    .pipe(reload({
+      stream: true
+    }));
 });
