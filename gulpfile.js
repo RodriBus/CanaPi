@@ -28,7 +28,7 @@ gulp.task('serve', 'Sirve la aplicación', ['compile'], function() {
 gulp.task('compile', 'Compila los ficheros HTML, CSS y JS', ['html', 'css', 'js']);
 
 gulp.task('html', 'Compila HTML con los ficheros JADE', function() {
-  return gulp.src('server/**/*.jade')
+  return gulp.src('server/resources/src/**/*.jade')
     .pipe(debug({
       title: 'HTML'
     }))
@@ -40,7 +40,7 @@ gulp.task('html', 'Compila HTML con los ficheros JADE', function() {
 });
 
 gulp.task('css', 'Genera app.css con los ficheros SCSS', function() {
-  return gulp.src('server/styles/main.scss')
+  return gulp.src('server/resources/src/styles/main.scss')
     .pipe(debug({
       title: 'CSS'
     }))
@@ -51,14 +51,14 @@ gulp.task('css', 'Genera app.css con los ficheros SCSS', function() {
     }).on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('public/styles'))
+    .pipe(gulp.dest('public/resources/styles'))
     .pipe(reload({
       stream: true
     }));
 });
 
 gulp.task('js', 'Genera app.js con los ficheros JS', function() {
-  return gulp.src('server/**/*.js')
+  return gulp.src('server/resources/src/**/*.js')
     .pipe(debug({
       title: 'JS'
     }))
@@ -67,7 +67,7 @@ gulp.task('js', 'Genera app.js con los ficheros JS', function() {
     //.pipe(eslint.failAfterError())
     .pipe(concat('app.js'))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('public/scripts'))
+    .pipe(gulp.dest('public/resources/scripts'))
     .pipe(reload({
       stream: true
     }));
